@@ -12,7 +12,11 @@ import {
   OptimizelyProvider,
 } from '@optimizely/react-sdk';
 
-const optimizelyClient = createInstance({ sdkKey:'2vDJVty5bzpbsWsQtLKZp' });
+const optimizelyClient = createInstance({ sdkKey: process.env.OPTIMIZELY_KEY });
+
+console.log('process.env.LAUNCHDARKLY_KEY', process.env.LAUNCHDARKLY_KEY);
+console.log('process.env.OPTIMIZELY_KEY', process.env.OPTIMIZELY_KEY);
+
 
 function isClientValid() {
   return optimizelyClient.getOptimizelyConfig() !== null;
@@ -57,6 +61,6 @@ useEffect(() => {
 }
 
 export default withLDProvider({
-  clientSideID: '6388e31e60eee7118fbd96a7',
+  clientSideID: process.env.LAUNCHDARKLY_KEY || '',
   
 })(App as ComponentType<{}>);
