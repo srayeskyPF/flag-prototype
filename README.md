@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## API KEYS
+Launch Darkly and Optimizely both require the variables to be set locally in the `.env.local` file to work. You can get those keys from the dashboards of either service.
+
 ## Getting Started
 
 First, run the development server:
