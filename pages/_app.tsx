@@ -7,10 +7,19 @@ import { theme, darkTheme } from "../utils/theme";
 import type { AppProps } from 'next/app'
 import { withLDProvider, useLDClient } from 'launchdarkly-react-client-sdk';
 import { v4 as uuid } from 'uuid';
+import {
+  createInstance,
+  OptimizelyProvider,
+} from '@optimizely/react-sdk';
+
+const optimizelyClient = createInstance({ sdkKey:'2vDJVty5bzpbsWsQtLKZp' });
+
+function isClientValid() {
+  return optimizelyClient.getOptimizelyConfig() !== null;
+}
 
 function App({ Component, pageProps }: AppProps) {
   const ldClient = useLDClient();
-  // const [items, setItems] = useState([]);
 
 useEffect(() => {
   let LD_ID = localStorage.getItem('LD_ID');
@@ -29,12 +38,20 @@ useEffect(() => {
 
   return (
     <>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ThemeProvider>
+      <OptimizelyProvider
+          optimizely={optimizelyClient}
+          // Generally React SDK runs for one client at a time i.e for one user throughout the lifecycle.
+          // You can provide the user Id here once and the SDK will memoize and reuse it throughout the application lifecycle.
+          // For this example, we are simulating 10 different users so we will ignore this and pass override User IDs to the useDecision hook for demonstration purpose.
+          user={{ id: 'user123' }}
+        >
+        <CssBaseline />
+        <ThemeProvider theme={theme}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ThemeProvider>
+      </OptimizelyProvider>
     </>
   );
 }

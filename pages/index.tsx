@@ -6,15 +6,41 @@ import Button from "@mui/material/Button";
 import Hero from "../components/Hero/Hero";
 import studentsImage from "/public/students.jpg";
 import { useFlags } from 'launchdarkly-react-client-sdk';
+import { OptimizelyFeature, withOptimizely } from '@optimizely/react-sdk'
 
+interface homeProps {
+  optimizely: any,
+}
 
-export default function Home() {
+function Home(props: homeProps) {
   const { ctaText } = useFlags() || 'Learn More';
-  console.log('ctaText', ctaText);
+  const handleContentClick = () => {
+    const { optimizely } = props;
+    optimizely.track('content click');
+  } 
+   
   
   return (
     <>
       <Hero />
+      <Box>
+        <>
+        <OptimizelyFeature feature="content_toggle">
+          {(enabled, variables) => (
+            <>
+              {enabled &&
+              <>
+                <Typography variant="h2">Amazing fresh content</Typography>
+                  <Button variant="contained" color="primary" onClick={handleContentClick}>
+                    Get Content
+                  </Button>
+              </>
+              }
+            </>
+          )}
+          </OptimizelyFeature>
+        </>
+      </Box>
       <Container>
         <Grid container spacing={8} padding={4}>
           <Grid item xs={12} md={4} padding={2}>
@@ -97,4 +123,4 @@ export default function Home() {
   );
 }
 
-// export default withLDConsumer()();
+export default withOptimizely(Home);
