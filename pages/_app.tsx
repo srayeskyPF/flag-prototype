@@ -14,10 +14,6 @@ import {
 
 const optimizelyClient = createInstance({ sdkKey: process.env.OPTIMIZELY_KEY });
 
-console.log('process.env.LAUNCHDARKLY_KEY', process.env.LAUNCHDARKLY_KEY);
-console.log('process.env.OPTIMIZELY_KEY', process.env.OPTIMIZELY_KEY);
-
-
 function isClientValid() {
   return optimizelyClient.getOptimizelyConfig() !== null;
 }

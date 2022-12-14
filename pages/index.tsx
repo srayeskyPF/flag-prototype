@@ -48,10 +48,7 @@ function Home(props: homeProps) {
               <Box padding={3}>
                 <Typography variant="h6">Achieve your dreams</Typography>
                 <Typography variant="body1" paddingY={3}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
-                  odio necessitatibus deleniti molestias molestiae. Vero quod
-                  impedit sit animi odio, suscipit consequuntur non dignissimos
-                  neque reiciendis provident commodi voluptas maiores!
+                  Airplanes are beautiful cursed dreams that are swallowed by the sky.
                 </Typography>
                 <Button variant="contained" color="primary">
                   {ctaText}
@@ -62,12 +59,9 @@ function Home(props: homeProps) {
           <Grid item xs={12} md={4} padding={2}>
             <Paper elevation={3}>
               <Box padding={3}>
-                <Typography variant="h6">Achieve your dreams</Typography>
+                <Typography variant="h6">Empower your dreams</Typography>
                 <Typography variant="body1" paddingY={3}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
-                  odio necessitatibus deleniti molestias molestiae. Vero quod
-                  impedit sit animi odio, suscipit consequuntur non dignissimos
-                  neque reiciendis provident commodi voluptas maiores!
+                  Empower your future by achieving results today that will affect the rest of your life.
                 </Typography>
                 <Button variant="contained" color="primary">
                   {ctaText}
@@ -78,12 +72,9 @@ function Home(props: homeProps) {
           <Grid item xs={12} md={4} padding={2}>
             <Paper elevation={3}>
               <Box padding={3}>
-                <Typography variant="h6">Achieve your dreams</Typography>
+                <Typography variant="h6">Live your dreams</Typography>
                 <Typography variant="body1" paddingY={3}>
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
-                  odio necessitatibus deleniti molestias molestiae. Vero quod
-                  impedit sit animi odio, suscipit consequuntur non dignissimos
-                  neque reiciendis provident commodi voluptas maiores!
+                  Getting to where you want to be is where start, and we don&apos;t stop until you get there.
                 </Typography>
                 <Button variant="contained" color="primary">
                   {ctaText}
@@ -117,6 +108,12 @@ function Home(props: homeProps) {
               </Button>
             </Box>
           </Grid>
+        </Container>
+        <Container>
+          <Typography variant="h3">Start something new</Typography>
+          <Typography variant="body1" paddingY={3}>
+            This is another block of text.
+          </Typography>
         </Container>
       </Container>
     </>
